@@ -1,14 +1,16 @@
 <script>
 import axios from 'axios'
 import { store } from './store.js'
-import AppHeader from './components/AppHeader.vue.js'
+import AppHeader from './components/AppHeader.vue'
 import AppMain from './components/AppMain.vue'
+
 
 
 export default {
   components: {
     AppHeader,
-    AppMain
+    AppMain,
+
   },
   data() {
     return {
@@ -19,20 +21,28 @@ export default {
   },
   methods: {
     getFilms() {
-      let urlApiFilm = "https://api.themoviedb.org/3/search/movie?api_key=0e52fe5f3a026a87f645a2c5c7f70271&query=avengers";
-
-      axios.get(urlApiFilm)
-        .then(response => {
-          this.store.filmList = response.data.results;
-        })
-
-    },
 
 
+
+    }
+
+  },
+  created() {
+
+
+    axios.get("https://api.themoviedb.org/3/search/movie?api_key=0e52fe5f3a026a87f645a2c5c7f70271&query=avengers")
+      .then(response => {
+        this.store.filmList = response.data.results;
+
+        console.log(response);
+      })
 
 
   }
 }
+
+
+
 
 </script>
 
@@ -45,6 +55,7 @@ export default {
 
   <main>
     <AppMain></AppMain>
+
   </main>
 </template>
 

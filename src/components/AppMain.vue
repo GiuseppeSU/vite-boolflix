@@ -1,13 +1,19 @@
 <script>
 import { store } from '../store.js'
+import FilmCard from './FilmCard.vue';
 export default {
     name: 'AppMain',
     data() {
         return {
 
         }
+    },
+    components: {
+        FilmCard,
     }
 }
 </script>
-<template></template>
+<template>
+    <FilmCard></FilmCard>
+</template>
 <style scoped></style>
