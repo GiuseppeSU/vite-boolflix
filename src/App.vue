@@ -1,13 +1,14 @@
 <script>
 import axios from 'axios'
 import { store } from './store.js'
-
-import MyHeader from './components/MyHeader.vue'
+import AppHeader from './components/AppHeader.vue.js'
+import AppMain from './components/AppMain.vue'
 
 
 export default {
   components: {
-    MyHeader
+    AppHeader,
+    AppMain
   },
   data() {
     return {
@@ -37,10 +38,14 @@ export default {
 
 <template>
   <header>
-    <MyHeader></MyHeader>
+    <AppHeader></AppHeader>
   </header>
-  <main></main>
-  <footer></footer>
+
+
+
+  <main>
+    <AppMain></AppMain>
+  </main>
 </template>
 
 <style scoped></style>
