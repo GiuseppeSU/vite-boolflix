@@ -4,6 +4,8 @@ export default {
     name: 'AppHeader',
     data() {
         return {
+            store,
+
 
         }
     }
@@ -13,8 +15,8 @@ export default {
 
 <template>
     <div class="search-bar">
-        <input type="text" placeholder="Cerca il tuo Film!">
-        <button>Cerca!</button>
+        <input type="text" placeholder="Cerca il tuo Film!" v-model="store.search">
+        <button @click="$emit('doSearch')">Cerca!</button>
     </div>
 </template>
 
