@@ -2,7 +2,7 @@
     <div class="container-card">
         <div class="card">
             <div>
-                <img :src=image>
+                <img :src="getImg(image)">
                 <h1>{{ titolo }}</h1>
                 <h3>{{ titoloTrue }}</h3>
             </div>
@@ -39,17 +39,11 @@ export default {
         getImageUrl(path) {
             return new URL(path, import.meta.url).href
         },
-        getImg() {
-            let urlImg = "https://image.tmdb.org/t/p/w342/"
-            if (store.search.length > 0) {
-                urlImg += `image=${store.search}`
-            }
-            axios.get(urlImg)
-                .then(response => {
-                    this.store.imageList = response.data.results;
-                })
-
+        getImg(image) {
+            let urlImg = "https://image.tmdb.org/t/p/w342/" + image
+            return urlImg
         }
+
     }
 }
 </script>
