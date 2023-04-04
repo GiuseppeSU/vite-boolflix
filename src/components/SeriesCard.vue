@@ -11,7 +11,7 @@
                 <p v-else>
                 <h3 class="lingua">{{ lingua }}</h3>
                 </p>
-                <p>{{ voto }}</p>
+                <p>{{ vote }}</p>
             </div>
         </div>
     </div>
@@ -43,6 +43,13 @@ export default {
             let urlImg = "https://image.tmdb.org/t/p/w342/" + image
             return urlImg
         }
+    },
+    computed: {
+        vote() {
+            return Math.ceil(this.voto * 5 / 10)
+
+        }
+
     }
 }
 </script>
