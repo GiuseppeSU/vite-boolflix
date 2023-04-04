@@ -6,14 +6,13 @@
                 <h3>{{ titoloTrue }}</h3>
             </div>
             <div class="container-text">
-                <p class="lingua">{{ lingua }}</p>
+                <img class="image" :src="getImageUrl(`assets/${lingua}.png`)" v-if="flags.includes(lingua)" />
+                <P v-else>
+                <h3 class="lingua">{{ lingua }}</h3>
+                </P>
                 <p>{{ voto }}</p>
-
             </div>
-
-
         </div>
-
     </div>
 </template>
 
@@ -27,19 +26,29 @@ export default {
         lingua: String,
         voto: Number
 
+    },
+    data() {
+        return {
+            flags: ["en", "it"]
+
+        }
+    },
+    methods: {
+        getImageUrl(path) {
+            return new URL(path, import.meta.url).href
+        }
     }
 }
 </script>
 
 
 <style scoped>
-.container-text {
-
-    margin-left: 20px;
-}
-
 .lingua {
     font-size: 25px;
 
+}
+
+.image {
+    height: 50px;
 }
 </style>
