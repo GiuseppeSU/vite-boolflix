@@ -1,6 +1,7 @@
 <script>
 import { store } from '../store.js'
 import FilmCard from './FilmCard.vue';
+import SeriesCard from './SeriesCard.vue';
 export default {
     name: 'AppMain',
     data() {
@@ -11,12 +12,13 @@ export default {
     },
     components: {
         FilmCard,
+        SeriesCard
     }
 }
 </script>
 <template>
     <section>
-        <h2>film</h2>
+        <h2 class="title">film</h2>
         <div class="container">
             <FilmCard v-for="film in store.filmList" :titolo="film.title" :titoloTrue="film.original_title"
                 :lingua="film.original_language" :voto="film.vote_average">
@@ -26,13 +28,18 @@ export default {
     </section>
 
     <section>
-        <h2>Serie TV</h2>
+        <h2 class="title">Serie TV</h2>
         <div class="container">
-            <FilmCard v-for="series in store.filmList" :titolo="film.title" :titoloTrue="film.original_title"
-                :lingua="film.original_language" :voto="film.vote_average">
-            </FilmCard>
+            <SeriesCard v-for="series in store.serieslist" :titolo="series.name" :titoloTrue="series.original_name"
+                :lingua="series.original_language" :voto="series.vote_average">
+            </SeriesCard>
 
         </div>
     </section>
 </template>
-<style scoped></style>
+<style scoped>
+.title {
+    font-size: 40px;
+    color: red;
+}
+</style>
