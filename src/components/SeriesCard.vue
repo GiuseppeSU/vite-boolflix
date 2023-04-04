@@ -7,9 +7,9 @@
             </div>
             <div class="container-text">
                 <img class="image" :src="getImageUrl(`assets/${lingua}.png`)" v-if="flags.includes(lingua)" />
-                <P v-else>
+                <p v-else>
                 <h3 class="lingua">{{ lingua }}</h3>
-                </P>
+                </p>
                 <p>{{ voto }}</p>
             </div>
         </div>
