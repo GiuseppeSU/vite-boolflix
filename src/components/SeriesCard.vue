@@ -12,6 +12,7 @@
                 <h3 class="lingua">{{ lingua }}</h3>
                 </p>
                 <p>{{ vote }}</p>
+                <i class=" fa-solid fa-star"></i>
             </div>
         </div>
     </div>

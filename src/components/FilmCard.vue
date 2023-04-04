@@ -11,7 +11,8 @@
                 <p v-else>
                 <h3 class="lingua">{{ lingua }}</h3>
                 </p>
-                <p>{{ vote }}</p>
+                <p><i v-for="n in vote" class="fa-solid fa-star"></i></p>
+
             </div>
         </div>
     </div>
@@ -33,6 +34,7 @@ export default {
         return {
             flags: ["en", "it"]
 
+
         }
     },
     methods: {
@@ -44,12 +46,14 @@ export default {
             return urlImg
         },
 
+
     },
     computed: {
         vote() {
             return Math.ceil(this.voto * 5 / 10)
 
-        }
+        },
+
 
     }
 }
