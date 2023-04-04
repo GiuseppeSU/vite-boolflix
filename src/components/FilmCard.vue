@@ -51,4 +51,8 @@ export default {
 .image {
     height: 50px;
 }
+
+.container-card {
+    margin-bottom: 50px;
+}
 </style>

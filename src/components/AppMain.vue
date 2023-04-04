@@ -30,8 +30,8 @@ export default {
     <section>
         <h2 class="title">Serie TV</h2>
         <div class="container">
-            <SeriesCard v-for="series in store.serieslist" :titolo="series.name" :titoloTrue="series.original_name"
-                :lingua="series.original_language" :voto="series.vote_average">
+            <SeriesCard class="card" v-for="series in store.serieslist" :titolo="series.name"
+                :titoloTrue="series.original_name" :lingua="series.original_language" :voto="series.vote_average">
             </SeriesCard>
 
         </div>
@@ -41,5 +41,6 @@ export default {
 .title {
     font-size: 40px;
     color: red;
+    margin-bottom: 50px;
 }
 </style>
