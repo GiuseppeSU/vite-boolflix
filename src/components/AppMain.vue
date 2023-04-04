@@ -20,8 +20,8 @@ export default {
     <section v-if="store.filmList.length > 0">
         <h2 class="title">film</h2>
         <div class="container">
-            <FilmCard v-for="film in store.filmList" :titolo="film.title" :titoloTrue="film.original_title"
-                :lingua="film.original_language" :voto="film.vote_average" :key="film.id">
+            <FilmCard v-for="film in store.filmList" :image="film.poster_path" :titolo="film.title"
+                :titoloTrue="film.original_title" :lingua="film.original_language" :voto="film.vote_average" :key="film.id">
             </FilmCard>
 
         </div>
@@ -30,7 +30,7 @@ export default {
     <section v-if="store.serieslist.length > 0">
         <h2 class="title">Serie TV</h2>
         <div class="container">
-            <SeriesCard class="card" v-for="series in store.serieslist" :titolo="series.name"
+            <SeriesCard class="card" v-for="series in store.serieslist" :image="series.poster_path" :titolo="series.name"
                 :titoloTrue="series.original_name" :lingua="series.original_language" :voto="series.vote_average"
                 :key="series.id">
             </SeriesCard>

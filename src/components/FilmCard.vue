@@ -2,6 +2,7 @@
     <div class="container-card">
         <div class="card">
             <div>
+                <img :src=image>
                 <h1>{{ titolo }}</h1>
                 <h3>{{ titoloTrue }}</h3>
             </div>
@@ -21,6 +22,7 @@ export default {
     name: 'FilmCard',
 
     props: {
+        image: String,
         titolo: String,
         titoloTrue: String,
         lingua: String,
@@ -36,6 +38,17 @@ export default {
     methods: {
         getImageUrl(path) {
             return new URL(path, import.meta.url).href
+        },
+        getImg() {
+            let urlImg = "https://image.tmdb.org/t/p/w342/"
+            if (store.search.length > 0) {
+                urlImg += `image=${store.search}`
+            }
+            axios.get(urlImg)
+                .then(response => {
+                    this.store.imageList = response.data.results;
+                })
+
         }
     }
 }

@@ -42,7 +42,8 @@ export default {
           this.store.serieslist = response.data.results;
         })
 
-    }
+    },
+
 
   },
   created() {
