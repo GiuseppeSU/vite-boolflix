@@ -21,7 +21,7 @@ export default {
         <h2 class="text-center text-danger fs-1 mb-4">Film</h2>
         <div class="container">
             <div class="row">
-                <div class="col-4 mb-5" v-for="film in store.filmList">
+                <div class="col mb-5" v-for="film in store.filmList">
                     <FilmCard :image="film.poster_path" :titolo="film.title" :titoloTrue="film.original_title"
                         :lingua="film.original_language" :voto="film.vote_average" :key="film.id">
                     </FilmCard>
@@ -34,7 +34,7 @@ export default {
         <h2 class="text-danger fs-1 mb-4 text-center">Serie TV</h2>
         <div class="container">
             <div class="row ">
-                <div class="col-4 mb-5" v-for="series in store.serieslist">
+                <div class="col mb-5" v-for="series in store.serieslist">
                     <SeriesCard :image="series.poster_path" :titolo="series.name" :titoloTrue="series.original_name"
                         :lingua="series.original_language" :voto="series.vote_average" :key="series.id">
                     </SeriesCard>
