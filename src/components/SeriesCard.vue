@@ -8,14 +8,18 @@
                             <img :src="getImg(image)">
                         </div>
                         <div class="flip-card-back">
-                            <h1 class="fs-5 mb-3">{{ titolo }}</h1>
+                            <h1 class="fs-5 mb-3 mt-5">{{ titolo }}</h1>
                             <h3 class="fs-5">{{ titoloTrue }}</h3>
                             <img class="image mb-2" :src="getImageUrl(`assets/${lingua}.png`)"
                                 v-if="flags.includes(lingua)" />
                             <p v-else>
                             <h3 class=" fs-6">{{ lingua }}</h3>
                             </p>
-                            <p><i v-for="n in vote" class="fa-solid fa-star mt-3 ms_color"></i></p>
+                            <p>{{ getRating() }}</p>
+                            <div>
+                                <i v-for="n in 5" class="fa-star ms_color" :key="n"
+                                    :class="n <= getRating() ? 'fa-solid' : 'fa-regular'"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -50,15 +54,13 @@ export default {
         getImg(image) {
             let urlImg = "https://image.tmdb.org/t/p/w342/" + image
             return urlImg
+        },
+        getRating() {
+            return Math.ceil(this.voto / 2);
+
         }
     },
-    computed: {
-        vote() {
-            return Math.ceil(this.voto * 5 / 10)
 
-        }
-
-    }
 }
 </script>
 
