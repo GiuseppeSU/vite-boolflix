@@ -1,20 +1,24 @@
 <template>
-    <div class="container-card">
-        <div class="card">
-            <div>
-                <img :src="getImg(image)">
-                <h1>{{ titolo }}</h1>
-                <h3>{{ titoloTrue }}</h3>
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col">
+                <div class="card ms_flip-card-inner">
+                    <img :src="getImg(image)">
+                    <div class="card-body text-center ms_bgColor">
+                        <h1 class="fs-5 mb-3">{{ titolo }}</h1>
+                        <!-- <h3 class="fs-5">{{ titoloTrue }}</h3> -->
+                        <img class="image mb-2" :src="getImageUrl(`assets/${lingua}.png`)" v-if="flags.includes(lingua)" />
+                        <p v-else>
+                        <h3 class=" fs-6">{{ lingua }}</h3>
+                        </p>
+                        <p><i v-for="n in vote" class="fa-solid fa-star mt-3 ms_color"></i></p>
+                    </div>
+                </div>
             </div>
-            <div class="container-text">
-                <img class="image" :src="getImageUrl(`assets/${lingua}.png`)" v-if="flags.includes(lingua)" />
-                <p v-else>
-                <h3 class="lingua">{{ lingua }}</h3>
-                </p>
-                <p><i v-for="n in vote" class="fa-solid fa-star"></i></p>
 
-            </div>
+
         </div>
+
     </div>
 </template>
 
@@ -61,16 +65,15 @@ export default {
 
 
 <style scoped>
-.lingua {
-    font-size: 25px;
-
-}
-
 .image {
-    height: 50px;
+    height: 30px;
 }
 
-.container-card {
-    margin-bottom: 50px;
+.ms_color {
+    color: orange;
+}
+
+.ms_bgColor {
+    background-color: rgb(131, 16, 16);
 }
 </style>

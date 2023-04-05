@@ -16,32 +16,34 @@ export default {
     }
 }
 </script>
-<template>
+<template >
     <section v-if="store.filmList.length > 0">
-        <h2 class="title">film</h2>
+        <h2 class="text-center text-danger fs-1 mb-4">Film</h2>
         <div class="container">
-            <FilmCard v-for="film in store.filmList" :image="film.poster_path" :titolo="film.title"
-                :titoloTrue="film.original_title" :lingua="film.original_language" :voto="film.vote_average" :key="film.id">
-            </FilmCard>
-
+            <div class="row">
+                <div class="col-4 mb-5" v-for="film in store.filmList">
+                    <FilmCard :image="film.poster_path" :titolo="film.title" :titoloTrue="film.original_title"
+                        :lingua="film.original_language" :voto="film.vote_average" :key="film.id">
+                    </FilmCard>
+                </div>
+            </div>
         </div>
     </section>
 
     <section v-if="store.serieslist.length > 0">
-        <h2 class="title">Serie TV</h2>
+        <h2 class="text-danger fs-1 mb-4 text-center">Serie TV</h2>
         <div class="container">
-            <SeriesCard class="card" v-for="series in store.serieslist" :image="series.poster_path" :titolo="series.name"
-                :titoloTrue="series.original_name" :lingua="series.original_language" :voto="series.vote_average"
-                :key="series.id">
-            </SeriesCard>
+            <div class="row ">
+                <div class="col-4 mb-5" v-for="series in store.serieslist">
+                    <SeriesCard :image="series.poster_path" :titolo="series.name" :titoloTrue="series.original_name"
+                        :lingua="series.original_language" :voto="series.vote_average" :key="series.id">
+                    </SeriesCard>
+
+                </div>
+            </div>
+
         </div>
     </section>
     <h2 v-if="store.filmList.length == 0 && store.serieslist.length == 0">Nessun elemento trovato</h2>
 </template>
-<style scoped>
-.title {
-    font-size: 40px;
-    color: red;
-    margin-bottom: 50px;
-}
-</style>
+<style scoped></style>
