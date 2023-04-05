@@ -15,14 +15,26 @@ export default {
 
 <template>
     <div class="search-bar">
-        <input type="text" placeholder="Cerca il tuo Film!" v-model="store.search">
-        <button @click="$emit('doSearch')">Cerca!</button>
+        <h1>Boolflix</h1>
+        <div class="input">
+            <input type="text" placeholder="Cerca il tuo Film!" v-model="store.search">
+            <button @click="$emit('doSearch')">Cerca!</button>
+        </div>
     </div>
 </template>
 
 <style scoped>
 .search-bar {
-    text-align: center;
-    margin-top: 30px;
+    display: flex;
+    background-color: black;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+h1 {
+    margin-left: 20px;
+    font-size: 40px;
+    color: red;
 }
 </style>
