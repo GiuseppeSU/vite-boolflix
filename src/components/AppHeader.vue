@@ -18,7 +18,7 @@ export default {
         <h1>Boolflix</h1>
         <div class="input">
             <input type="text" placeholder="Cerca il tuo Film!" v-model="store.search">
-            <button @click="$emit('doSearch')">Cerca!</button>
+            <button class="btn btn-danger ms-2 mb-1" @click="$emit('doSearch')">Cerca!</button>
         </div>
     </div>
 </template>
